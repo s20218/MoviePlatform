@@ -1,0 +1,32 @@
+﻿@model ReviewDto
+@{
+    ViewData["Title"] = "SubmitForm";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<div class="container" style="padding-top:150px; background-color: lightgray;">    
+    <div class="card">
+        <h1>@Model.Movie.Title</h1>
+        <div class="row">         
+            <div class="col-10">
+                <div class="comment-box ml-2">                  
+                    <h2>Add a review</h2>
+                        @using (Html.BeginForm("Add", "Review", FormMethod.Get))
+                        {
+                            <div class="rating">
+                             @Html.RadioButtonFor(m => m.Grade, Grade.terrible.ToString()) @Grade.terrible.ToString()
+                             @Html.RadioButtonFor(m => m.Grade, Grade.bad.ToString()) @Grade.bad.ToString()
+                             @Html.RadioButtonFor(m => m.Grade, Grade.okay.ToString()) @Grade.okay.ToString()
+                             @Html.RadioButtonFor(m => m.Grade, Grade.good.ToString()) @Grade.good.ToString()
+                             @Html.RadioButtonFor(m => m.Grade, Grade.excellent.ToString()) @Grade.excellent.ToString()
+                            </div>
+                            <div class="comment-area"> @Html.TextAreaFor(m => m.Opinion, new { @class = "form-control" }) </div>
+                            <input type="submit" value="Submit" class="btn btn-primary" />
+                            <a class="btn btn-primary" role="button" asp-controller="Movie" asp-action="Details" asp-route-IdMovie=@Model.Movie.IdMovie>Cancel</a>
+                        }
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>

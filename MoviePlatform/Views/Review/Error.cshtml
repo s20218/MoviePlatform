@@ -1,0 +1,12 @@
+﻿@model ReviewDto
+@{
+    ViewData["Title"] = "NotFound";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div>
+    <h1>Something went terribly wrong!</h1>
+    <a asp-controller="Review" asp-action="SubmitForm" asp-route-IdMovie=@Model.Movie.IdMovie>
+        Go back
+    </a>
+</div>

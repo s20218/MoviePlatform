@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<title>Movie platform</title>
+
+<style>
+* {
+  box-sizing: border-box; 
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+}
+#main {
+  display: flex;
+  flex: 1;
+  background: lightgrey;
+}
+
+header {
+  background: black;
+  height: 7vh;
+}
+footer{
+  background: black;
+  height: 5vh;
+}
+
+header, footer {
+  padding: 1em;
+}
+
+</style>
+<body>
+  <header>
+      <form id="form" style="float:right"> 
+          <input type="search" placeholder="Search...">
+          <button>Search</button>
+      </form>
+  </header>
+  <div id="main">
+    @RenderBody()
+  </div>
+  <footer></footer>
+</body>

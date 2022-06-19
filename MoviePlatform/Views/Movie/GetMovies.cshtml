@@ -1,0 +1,26 @@
+﻿@model List<Movie>
+
+@{
+    ViewData["Title"] = "Movies";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<div class="row" style="padding-top:20px">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-xs-6 border-primary mb-3">
+            <div class="card mb-3" style="width:350px">
+                <img src="https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg" style="width:100%; height:100%">                    
+                <div class="card-footer">
+                    <div class="card-title">
+                        @item.Title
+                    </div>
+                    <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-IdMovie=@item.IdMovie>
+                        Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
